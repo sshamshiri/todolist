@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <h1>Create New Task:</h1>
-<a href="{% url 'core:tasks' %}">Back</a>
+<a href="{% url 'tasks' %}">Back</a>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
