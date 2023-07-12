@@ -17,9 +17,18 @@
 </form>
 <ul>
     {% for task in tasks %}
-        <li>{{task.title}}</li>
-        <a class="btn btn-info" href="{% url 'task-update' task.id %}">Edit</a>
-        <a class="btn btn-danger" href="{% url 'task-delete' task.id %}">Delete</a>
+        <div class="task-complete-icon">
+        {% if task.complete %}
+            <s><a href="{% url 'task-update' task.id %}">{{task}}</a></s>
+        </div>
+        {% else %}
+        <div class="task-incomplete-icon"></div>
+            <a href="{% url 'task-update' task.id %}">{{task}}</a>
+        </div>
+
+        {% endif %}
+
+        <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
 
     {% empty %}
         <p>No tasks yet!</p>
