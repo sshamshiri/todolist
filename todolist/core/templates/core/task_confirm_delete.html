@@ -1,10 +1,9 @@
 {% extends 'core/base.html' %}
 {% block content %}
-<h1>Create New Task:</h1>
 <a href="{% url 'core:tasks' %}">Back</a>
 <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input class="btn btn-primary" type="submit" value="submit">
+    <p class="p-3 m-2">Are you sure you want to delete {{task}}?</p>
+    <input class="btn btn-danger p-2 m-3" type="submit" value="Delete">
 </form>
 {% endblock %}
