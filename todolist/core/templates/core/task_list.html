@@ -17,13 +17,15 @@
 </form>
 <div class="task-items-wrapper">
     {% for task in tasks %}
-    <hr>
-        <div class="task-complete-icon">
-        {% if task.complete %}
-            <s><a href="{% url 'task-update' task.id %}">{{task}}</a></s>
-        </div>
+        <div class="task-wrapper">
+            {% if task.complete %}
+            <div class="task-title">
+                <div class="task-complete-icon"></div>
+                <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+            </div>
         {% else %}
-        <div class="task-incomplete-icon"></div>
+        <div class="task-title">
+            <div class="task-incomplete-icon"></div>
             <a href="{% url 'task-update' task.id %}">{{task}}</a>
         </div>
 
@@ -31,9 +33,9 @@
 
         <a class="delete-link" href="{% url 'task-delete' task.id %}">&#215;</a>
 
+</div>
     {% empty %}
         <p>No tasks yet!</p>
     {% endfor %}
-</div>
 
 {% endblock %}
