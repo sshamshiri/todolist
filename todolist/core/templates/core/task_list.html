@@ -15,8 +15,9 @@
     <input type="text" name="filterBy" value="{{filter_value}}">
     <input type="submit" value="Search">
 </form>
-<ul>
+<div class="t">
     {% for task in tasks %}
+    <hr>
         <div class="task-complete-icon">
         {% if task.complete %}
             <s><a href="{% url 'task-update' task.id %}">{{task}}</a></s>
@@ -33,6 +34,6 @@
     {% empty %}
         <p>No tasks yet!</p>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}
